@@ -13,7 +13,7 @@ Add the following lines to your hosts file:
 127.0.0.1       subdomain.flasksubdomain.test
 ```
 
-You'd use a wildcard A record for your application in development, but this will do for now.  You'll also need `flask` and `urllib3`.  Clone this repo, then run `python3 run.py`!
+You'd use a wildcard A record for your application in development, but this will do for now.  You'll also need `flask` and `urllib3`.  Clone this repo, then run `python3 run.py`!
 
 ## the code, with comments
 
@@ -31,7 +31,7 @@ app = Flask(__name__)
 # Before each app request,
 @app.before_request
 def check_subdomain():
-  	# Use URLlib to parse the request URL and get the subdomain and hierarchical path.
+    # Use URLlib to parse the request URL and get the subdomain and hierarchical path.
     # path checks to see if static items are being requested and lets them through.  
     # Change this if you're changing the flask default static directory.
     subdomain = urllib.parse.urlsplit(request.url).netloc.split('.')[0]
@@ -57,5 +57,3 @@ def splash():
 # It goes without saying, but don't use the flask dev server in production, and especially don't use it with debug set to True!
 app.run(debug=True)
 ```
-
-
